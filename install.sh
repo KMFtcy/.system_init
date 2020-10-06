@@ -34,6 +34,15 @@ apt-get install ranger -y
 add-apt-repository ppa:lazygit-team/release
 apt-get update -y
 apt-get install lazygit -y
+# config color highlight
+cat << EOF >> ~/.config/jesseduffield/lazygit/config.yml
+gui:
+  theme:
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
+EOF
 
 
 # ===
