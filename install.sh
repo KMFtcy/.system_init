@@ -107,11 +107,11 @@ EOF
 
 start_from_step() {
 	echo '
-	1. file and directory prepare
-	2. install software
-	3. system setting
+1. file and directory prepare
+2. install software
+3. system setting
 	'
-	echo "choose a step to process >>>"
+	printf "choose a step to process >>>"
 	read -r step
 
 	if [ ${step} -lt 2 ] ;
