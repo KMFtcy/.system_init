@@ -35,7 +35,8 @@ add-apt-repository ppa:lazygit-team/release
 apt-get update -y
 apt-get install lazygit -y
 # config color highlight
-cat << EOF >> ~/.config/jesseduffield/lazygit/config.yml
+cat << EOF > ~/.config/jesseduffield/lazygit/config.yml
+startuppopupversion: 1
 gui:
   theme:
     selectedLineBgColor:
