@@ -128,8 +128,10 @@ EOF
 	# install vim-plug
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-			# install vim plugins
-			vim -c PlugInstall -c q -c q
+	# install vim plugins
+	vim -c PlugInstall -c q -c q
+	# create a dir to save swp file
+	mkdir -p ~/.vim/tmp
 
 			
 	# ===
