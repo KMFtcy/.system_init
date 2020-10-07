@@ -50,6 +50,10 @@ install_software() {
 	apt-get update -y
 	apt-get install lazygit -y
 	# config color highlight
+  if [ -f "~/.config/jesseduffield/lazygit/config.yml" ];
+	then
+		mv ~/.config/jesseduffield/lazygit/config.yml ~/.config/jesseduffield/lazygit/config.yml.bak
+	fi
 	cat << EOF > ~/.config/jesseduffield/lazygit/config.yml
 	startuppopupversion: 1
 	gui:
