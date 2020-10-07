@@ -36,6 +36,12 @@ install_software() {
 
 
 	# ===
+	# === tree
+	# ===
+	apt-get install -y tree 
+
+	
+	# ===
 	# === cowsay
 	# ===
 	apt-get install cowsay -y
