@@ -29,6 +29,10 @@ install_software() {
 	# ===
 	# === golang env
 	# ===
+	wget https://golang.google.cn/dl/go1.15.2.linux-amd64.tar.gz
+	tar -xzvf go1.15.2.linux-amd64.tar.gz -C /usr/local/
+	rm /usr/bin/go
+	ln -s /usr/local/go/bin/go /usr/bin/go
 
 
 	# ===
@@ -144,6 +148,10 @@ EOF
 system_setting() {
 	# bash setting
 	cat << EOF >> ~/.bashrc
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 alias cddev='cd ${DEVELOP_DIR}'
 alias lg='lazygit'
 EOF
