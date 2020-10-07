@@ -21,6 +21,12 @@ install_software() {
 
 
 	# ===
+	# === oh-my-bash
+	# ===
+	sh -c "$(wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+
+
+	# ===
 	# === golang env
 	# ===
 
@@ -133,8 +139,6 @@ EOF
 
 system_setting() {
 	# bash setting
-	# install oh-my-bash
-	sh -c "$(wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
 	cat << EOF >> ~/.bashrc
 alias cddev='cd ${DEVELOP_DIR}'
 alias lg='lazygit'
