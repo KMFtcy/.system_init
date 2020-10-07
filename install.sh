@@ -56,6 +56,25 @@ EOF
 
 
 	# ===
+	# === ctags
+	# ===
+	apt install \
+		gcc make \
+		pkg-config autoconf automake \
+		python3-docutils \
+		libseccomp-dev \
+		libjansson-dev \
+		libyaml-dev \
+		libxml2-dev
+	git clone https://github.com/universal-ctags/ctags.git
+	cd ctags
+	./autogen.sh
+	./configure --prefix=/usr/local/bin
+	make
+	make install
+
+
+	# ===
 	# === ripgrep
 	# ===
 	# ripgrep, supprt search feature
