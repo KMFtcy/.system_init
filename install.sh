@@ -151,6 +151,8 @@ system_setting() {
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+# export http_proxy=http://127.0.0.1:8889
+# export https_proxy=http://127.0.0.1:8889
 
 alias cddev='cd ${DEVELOP_DIR}'
 alias lg='lazygit'
