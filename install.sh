@@ -3,6 +3,9 @@
 install_param_init() {
 	WORK_DIR=$HOME
 	DEVELOP_DIR=$HOME/develop
+	INSTALLER=apt-get
+	INSTALLER_COMMAND=install
+	INSTALLER_PARAM="-y"
 }
 
 
@@ -15,9 +18,9 @@ file_and_dir_prepare() {
 install_software() {
 	cd ${WORK_DIR}
 	# download neccessary package and software
-	apt-get update -y
+	${INSTALLER} update -y
 	# basic dependency software
-	apt-get install gcc git ncurses-dev make python2-dev python3-dev -y
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} gcc git ncurses-dev make python2-dev python3-dev  
 
 
 	# ===
@@ -38,27 +41,27 @@ install_software() {
 	# ===
 	# === tree
 	# ===
-	apt-get install -y tree 
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} tree 
 
 	
 	# ===
 	# === cowsay
 	# ===
-	apt-get install cowsay -y
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} cowsay  
 
 
 	# ===
 	# === ranger
 	# ===
-	apt-get install ranger -y
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} ranger  
 
 
 	# ===
 	# === lazygit
 	# ===
 	add-apt-repository ppa:lazygit-team/release
-	apt-get update -y
-	apt-get install lazygit -y
+	${INSTALLER} update -y
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} lazygit  
 	# config color highlight
   if [ -f "~/.config/jesseduffield/lazygit/config.yml" ];
 	then
@@ -78,7 +81,7 @@ EOF
 	# ===
 	# === ctags
 	# ===
-	apt install \
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} \
 		gcc make \
 		pkg-config autoconf automake \
 		python3-docutils \
@@ -116,8 +119,8 @@ EOF
 	# ===
 	# install the latest vim
 	echo | sudo add-apt-repository ppa:jonathonf/vim
-	sudo apt-get update -y
-	sudo apt-get install vim -y
+	sudo ${INSTALLER} update -y
+	sudo ${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} vim  
 	# my vim config
 	git clone https://github.com/KMFtcy/.myvim.git
 	# replace old vimrc
@@ -137,19 +140,22 @@ EOF
 	# ===
 	# === docker
 	# ===
-	apt-get install \
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} \
 	  apt-transport-https \
 	  ca-certificates \
 		curl \
 		gnupg-agent \
 		software-properties-common
-	curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
-	add-apt-repository \
-    "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/ \
-		$(lsb_release -cs) \
-		stable"	
-  apt-get update -y
-	apt-get install -y docker-ce docker-ce-cli containerd.io
+	if [ ${INSTALLER} == "apt" ]
+	then
+		curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+		add-apt-repository \
+			"deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/ \
+			$(lsb_release -cs) \
+			stable"	
+	fi
+  ${INSTALLER} update -y
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM}   docker-ce docker-ce-cli containerd.io
 }
 
 
