@@ -98,7 +98,7 @@ EOF
 	git clone https://github.com/universal-ctags/ctags.git
 	cd ctags
 	./autogen.sh
-	./configure --prefix=/usr/local/bin
+	./configure --prefix=/usr/local
 	make
 	make install
 
