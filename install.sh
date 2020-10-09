@@ -45,6 +45,12 @@ install_software() {
 
 	
 	# ===
+	# === fzf
+	# ===
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} fzf 
+
+	
+	# ===
 	# === cowsay
 	# ===
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} cowsay  
