@@ -74,13 +74,13 @@ install_software() {
 		mv ~/.config/jesseduffield/lazygit/config.yml ~/.config/jesseduffield/lazygit/config.yml.bak
 	fi
 	cat << EOF > ~/.config/jesseduffield/lazygit/config.yml
-	startuppopupversion: 1
-	gui:
-		theme:
-			selectedLineBgColor:
-				- reverse
-			selectedRangeBgColor:
-				- reverse
+startuppopupversion: 1
+gui:
+	theme:
+		selectedLineBgColor:
+			- reverse
+		selectedRangeBgColor:
+			- reverse
 EOF
 
 
