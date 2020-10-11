@@ -47,6 +47,12 @@ install_software() {
 
 	
 	# ===
+	# === fzf
+	# ===
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} fzf 
+
+	
+	# ===
 	# === cowsay
 	# ===
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} cowsay  
@@ -70,13 +76,13 @@ install_software() {
 		mv ~/.config/jesseduffield/lazygit/config.yml ~/.config/jesseduffield/lazygit/config.yml.bak
 	fi
 	cat << EOF > ~/.config/jesseduffield/lazygit/config.yml
-	startuppopupversion: 1
-	gui:
-		theme:
-			selectedLineBgColor:
-				- reverse
-			selectedRangeBgColor:
-				- reverse
+startuppopupversion: 1
+gui:
+	theme:
+		selectedLineBgColor:
+			- reverse
+		selectedRangeBgColor:
+			- reverse
 EOF
 
 
@@ -94,7 +100,7 @@ EOF
 	git clone https://github.com/universal-ctags/ctags.git
 	cd ctags
 	./autogen.sh
-	./configure --prefix=/usr/local/bin
+	./configure --prefix=/usr/local
 	make
 	make install
 
@@ -116,29 +122,48 @@ EOF
 	rm install_nodejs.sh
 
 
+#	# ===
+#	# === vim
+#	# ===
+#	# install the latest vim
+#	echo | sudo add-apt-repository ppa:jonathonf/vim
+#	sudo ${INSTALLER} update -y
+#	sudo ${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} vim  
+#	# my vim config
+	# git clone https://github.com/KMFtcy/.myvim.git
+#	# replace old vimrc
+#	if [ -f "~/.vimrc" ]; then
+#		mv	~/.vimrc ~/.vimrc.previous
+#	fi
+#	ln -s $basepath/vimrc ~/.vimrc
+#	# install vim-plug
+#	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#	# install vim plugins
+#	vim -c PlugInstall -c q -c q
+#	# create a dir to save swp file
+#	mkdir -p ~/.vim/tmp
+
+			
 	# ===
-	# === vim
+	# === neovim
 	# ===
 	# install the latest vim
 	echo | sudo add-apt-repository ppa:jonathonf/vim
 	sudo ${INSTALLER} ${INSTALLER_UPDATE} ${UPDATE_PARAM}
 	sudo ${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} vim  
 	# my vim config
+	sudo ${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} nvim  
 	git clone https://github.com/KMFtcy/.myvim.git
-	# replace old vimrc
-	if [ -f "~/.vimrc" ]; then
-		mv	~/.vimrc ~/.vimrc.previous
+	NEOVIM_CONFIG_DIR=~/.config/nvim
+	sudo mkdir -p ${NEOVIM_CONFIG_DIR}
+	if [ -f "${NEOVIM_CONFIG_DIR}/init.vim" ]; then
+		mv	${NEOVIM_CONFIG_DIR}/init.vim ${NEOVIM_CONFIG_DIR}/init.vim.bak
 	fi
-	ln -s $basepath/vimrc ~/.vimrc
-	# install vim-plug
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	# install vim plugins
-	vim -c PlugInstall -c q -c q
-	# create a dir to save swp file
-	mkdir -p ~/.vim/tmp
+	ln -s .myvim/vimrc ${NEOVIM_CONFIG_DIR}/init.vim
+	ln -s .myvim/coc-settings.json ${NEOVIM_CONFIG_DIR}/coc-settings.json
 
-			
+
 	# ===
 	# === docker
 	# ===
