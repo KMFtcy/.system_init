@@ -87,6 +87,7 @@ EOF
 	# ===
 	# === ctags
 	# ===
+	cd ${WORK_DIR}
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} \
 		gcc make \
 		pkg-config autoconf automake \
