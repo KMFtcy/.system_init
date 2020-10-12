@@ -32,6 +32,7 @@ install_software() {
 	# ===
 	# === golang env
 	# ===
+	cd ${WORK_DIR}
 	wget https://golang.google.cn/dl/go1.15.2.linux-amd64.tar.gz
 	tar -xzvf go1.15.2.linux-amd64.tar.gz -C /usr/local/
 	rm /usr/bin/go
@@ -65,6 +66,7 @@ install_software() {
 	# ===
 	# === lazygit
 	# ===
+	cd ${WORK_DIR}
 	add-apt-repository ppa:lazygit-team/release
 	${INSTALLER} update -y
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} lazygit  
@@ -105,8 +107,21 @@ EOF
 
 
 	# ===
+	# === gtags
+	# ===
+	cd ${WORK_DIR}
+	wget https://ftp.gnu.org/pub/gnu/global/global-6.6.tar.gz
+	tar -zxvf global-6.6.tar.gz
+	cd global-6.6.tar.gz
+	./configure --with-universal-ctags=`which ctags`
+	sudo make
+	sudo make install
+
+
+	# ===
 	# === ripgrep
 	# ===
+	cd ${WORK_DIR}
 	# ripgrep, supprt search feature
 	curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
 	sudo dpkg -i ripgrep_11.0.2_amd64.deb
@@ -115,6 +130,7 @@ EOF
 	# ===
 	# === nodejs
 	# ===
+	cd ${WORK_DIR}
 	# intall nodejs, coc-nvim dependency
 	curl -sL install-node.now.sh/lts > install_nodejs.sh
 	yes | bash install_nodejs.sh
@@ -147,6 +163,7 @@ EOF
 	# ===
 	# === neovim
 	# ===
+	cd ${WORK_DIR}
 	sudo ${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} nvim  
 	git clone https://github.com/KMFtcy/.myvim.git
 	NEOVIM_CONFIG_DIR=~/.config/nvim
