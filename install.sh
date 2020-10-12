@@ -5,7 +5,9 @@ install_param_init() {
 	DEVELOP_DIR=$HOME/develop
 	INSTALLER=apt-get
 	INSTALLER_COMMAND=install
+	INSTALLER_UPDATE=update
 	INSTALLER_PARAM="-y"
+	UPDATE_PARAM="-y"
 }
 
 
@@ -18,7 +20,7 @@ file_and_dir_prepare() {
 install_software() {
 	cd ${WORK_DIR}
 	# download neccessary package and software
-	${INSTALLER} update -y
+	${INSTALLER} ${INSTALLER_UPDATE} ${UPDATE_PARAM}
 	# basic dependency software
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} gcc git ncurses-dev make python2-dev python3-dev  
 
@@ -68,7 +70,7 @@ install_software() {
 	# ===
 	cd ${WORK_DIR}
 	add-apt-repository ppa:lazygit-team/release
-	${INSTALLER} update -y
+	${INSTALLER} ${INSTALLER_UPDATE} ${UPDATE_PARAM}
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} lazygit  
 	# config color highlight
   if [ -f "~/.config/jesseduffield/lazygit/config.yml" ];
@@ -192,7 +194,7 @@ EOF
 			$(lsb_release -cs) \
 			stable"	
 	fi
-  ${INSTALLER} update -y
+  ${INSTALLER} ${INSTALLER_UPDATE} ${UPDATE_PARAM}
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM}   docker-ce docker-ce-cli containerd.io
 }
 
