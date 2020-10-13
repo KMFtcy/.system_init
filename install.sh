@@ -143,7 +143,7 @@ EOF
 	# === neovim
 	# ===
 	cd ${WORK_DIR}
-	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} nvim  
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} neovim  
 	git clone https://github.com/KMFtcy/.myvim.git
 	NEOVIM_CONFIG_DIR=~/.config/nvim
 	sudo mkdir -p ${NEOVIM_CONFIG_DIR}
