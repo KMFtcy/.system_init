@@ -3,7 +3,7 @@
 install_param_init() {
 	WORK_DIR=$HOME
 	DEVELOP_DIR=$HOME/develop
-	INSTALLER=apt-get
+	INSTALLER="sudo apt-get"
 	INSTALLER_COMMAND=install
 	INSTALLER_UPDATE=update
 	INSTALLER_PARAM="-y"
@@ -166,7 +166,7 @@ EOF
 	# === neovim
 	# ===
 	cd ${WORK_DIR}
-	sudo ${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} nvim  
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} nvim  
 	git clone https://github.com/KMFtcy/.myvim.git
 	NEOVIM_CONFIG_DIR=~/.config/nvim
 	sudo mkdir -p ${NEOVIM_CONFIG_DIR}
