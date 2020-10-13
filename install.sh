@@ -147,7 +147,7 @@ EOF
 	# install vim-plug at first
 	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
 		       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	git clone https://github.com/KMFtcy/.myvim.git
+	git clone https://github.com/KMFtcy/.myvim.git -b nvim
 	NEOVIM_CONFIG_DIR=~/.config/nvim
 	sudo mkdir -p ${NEOVIM_CONFIG_DIR}
 	if [ -f "${NEOVIM_CONFIG_DIR}/init.vim" ]; then
