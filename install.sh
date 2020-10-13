@@ -167,7 +167,7 @@ EOF
 		curl \
 		gnupg-agent \
 		software-properties-common
-	if [ ${INSTALLER} == "apt" ]
+	if [ ${INSTALLER} =~ "apt" ]
 	then
 		curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
 		add-apt-repository \
