@@ -167,16 +167,15 @@ EOF
 		curl \
 		gnupg-agent \
 		software-properties-common
-	if [ ${INSTALLER} =~ "apt" ]
-	then
-		curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
-		add-apt-repository \
+	if [[ "${INSTALLER}" =~ "apt" ]]; then
+		sudo curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+		sudo add-apt-repository \
 			"deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/ \
 			$(lsb_release -cs) \
 			stable"	
 	fi
   ${INSTALLER} ${INSTALLER_UPDATE} ${UPDATE_PARAM}
-	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM}   docker-ce docker-ce-cli containerd.io
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} docker-ce docker-ce-cli containerd.io
 }
 
 
