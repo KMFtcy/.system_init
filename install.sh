@@ -150,8 +150,8 @@ EOF
 	if [ -f "${NEOVIM_CONFIG_DIR}/init.vim" ]; then
 		mv	${NEOVIM_CONFIG_DIR}/init.vim ${NEOVIM_CONFIG_DIR}/init.vim.bak
 	fi
-	ln -s .myvim/vimrc ${NEOVIM_CONFIG_DIR}/init.vim
-	ln -s .myvim/coc-settings.json ${NEOVIM_CONFIG_DIR}/coc-settings.json
+	ln -s ~/.myvim/vimrc ${NEOVIM_CONFIG_DIR}/init.vim
+	ln -s ~/.myvim/coc-settings.json ${NEOVIM_CONFIG_DIR}/coc-settings.json
 
 
 	# ===
