@@ -138,29 +138,6 @@ EOF
 	yes | bash install_nodejs.sh
 	rm install_nodejs.sh
 
-
-#	# ===
-#	# === vim
-#	# ===
-#	# install the latest vim
-#	echo | sudo add-apt-repository ppa:jonathonf/vim
-#	sudo ${INSTALLER} update -y
-#	sudo ${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} vim  
-#	# my vim config
-	# git clone https://github.com/KMFtcy/.myvim.git
-#	# replace old vimrc
-#	if [ -f "~/.vimrc" ]; then
-#		mv	~/.vimrc ~/.vimrc.previous
-#	fi
-#	ln -s $basepath/vimrc ~/.vimrc
-#	# install vim-plug
-#	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-#		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-#	# install vim plugins
-#	vim -c PlugInstall -c q -c q
-#	# create a dir to save swp file
-#	mkdir -p ~/.vim/tmp
-
 			
 	# ===
 	# === neovim
