@@ -144,6 +144,9 @@ EOF
 	# ===
 	cd ${WORK_DIR}
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} neovim  
+	# install vim-plug at first
+	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+		       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 	git clone https://github.com/KMFtcy/.myvim.git
 	NEOVIM_CONFIG_DIR=~/.config/nvim
 	sudo mkdir -p ${NEOVIM_CONFIG_DIR}
@@ -152,6 +155,7 @@ EOF
 	fi
 	ln -s ~/.myvim/vimrc ${NEOVIM_CONFIG_DIR}/init.vim
 	ln -s ~/.myvim/coc-settings.json ${NEOVIM_CONFIG_DIR}/coc-settings.json
+	nvim -c PlugInstall -c q -c q
 
 
 	# ===
