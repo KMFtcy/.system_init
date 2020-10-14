@@ -69,7 +69,7 @@ install_software() {
 	# === lazygit
 	# ===
 	cd ${WORK_DIR}
-	add-apt-repository ppa:lazygit-team/release
+	echo | add-apt-repository ppa:lazygit-team/release
 	${INSTALLER} ${INSTALLER_UPDATE} ${UPDATE_PARAM}
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} lazygit  
 	# config color highlight
