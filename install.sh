@@ -73,6 +73,7 @@ install_software() {
 	${INSTALLER} ${INSTALLER_UPDATE} ${UPDATE_PARAM}
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} lazygit  
 	# config color highlight
+	mkdir -p ~/.config/jesseduffield/lazygit/
   if [ -f "~/.config/jesseduffield/lazygit/config.yml" ];
 	then
 		mv ~/.config/jesseduffield/lazygit/config.yml ~/.config/jesseduffield/lazygit/config.yml.bak
