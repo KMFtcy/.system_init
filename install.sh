@@ -22,7 +22,7 @@ install_software() {
 	# download neccessary package and software
 	${INSTALLER} ${INSTALLER_UPDATE} ${UPDATE_PARAM}
 	# basic dependency software
-	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} gcc git ncurses-dev make python2-dev python3-dev  
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} gcc git ncurses-dev make python2-dev python3-dev python-pip python3-pip
 
 
 	# ===
