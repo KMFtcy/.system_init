@@ -42,11 +42,15 @@ install_software() {
 
 
 	# ===
-	# === tree
+	# === neofetch
 	# ===
 	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} tree 
 
-	
+	# ===
+	# === tree
+	# ===
+	${INSTALLER} ${INSTALLER_COMMAND} ${INSTALLER_PARAM} neofetch
+
 	# ===
 	# === fzf
 	# ===
@@ -183,6 +187,8 @@ EOF
 system_setting() {
 	# bash setting
 	cat << EOF >> ~/.bashrc
+neofetch
+
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
 export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin
